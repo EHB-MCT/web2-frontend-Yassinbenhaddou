@@ -1,0 +1,148 @@
+/* colors:  #1b1b4d , #575ba8 , #675ca8 , #a3a3a3 , #e8e8ea */
+
+body { 
+    margin: 0;
+}
+
+.header 
+{
+    overflow: hidden;
+    background-color: #1b1b4d;
+    padding: 20px 10px;
+}
+
+.header div
+{
+    margin-right: 10%;
+}
+  
+.header a {
+    
+    float: left;
+    color: #e8e8ea;
+    text-align: center;
+    font-family: 'Roboto';
+    font-weight: bold;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 18px; 
+    line-height: 25px;
+   
+}
+  
+.header a.logo {
+    margin-left: 10%;
+    font-size: 25px;
+    font-weight: bold;
+}
+  
+.header a:hover {
+    background-color: #ddd;
+    color: black;
+}
+  
+.header a#active {
+    background-color: #675ca8;
+    color: #e8e8ea;
+}
+  
+.header-right {
+    float: right;
+}
+
+main .container
+{
+
+    margin: 0% 10% 2% 10%
+}
+
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 100%;
+    margin: auto;
+    text-align: center;
+    font-family: arial;
+  }
+  
+  
+.card button {
+    font-weight: bold;
+    display: block;
+    color:  #1b1b4d;
+    text-align: center;
+    padding: 8px 16px;
+    text-decoration: none;
+    font-size: 24px;
+    border: solid #1b1b4d;
+    width: 100%;
+}
+  
+.card button:hover {
+    background-color: #675ca8;
+    color: #e8e8ea;
+}
+
+
+
+.card img{
+    width: 100%;
+}
+  
+
+
+
+.planet {
+    cursor: pointer;
+    display: inline-block;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 20%;
+    margin: 2%;
+    background-color: #675ca8;
+    color: #e8e8ea;
+    
+}
+
+.planet img
+{
+
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  margin-top:10%;
+   
+}
+  
+.planet:hover {
+    box-shadow: 0 8px 16px 0 rgb(56, 1, 82);
+}
+  
+
+.info{
+    height:50px;
+    background-color: #1b1b4d;
+}
+
+.info h4{
+    font: 1em sans-serif;
+    font-weight: bolder;
+    display: block;
+    color:  #e8e8ea;
+    text-align: center;
+    padding: 4px 10px;
+    font-size: 20px;
+    font-variant-caps: unset;
+}
+
+
+
+/************************************/
+
+
+
+
+
+
+
