@@ -70,7 +70,8 @@ function printHtml(planets)
         </div>
         </div>
         `;
-    }    
+    }
+    planetsBtn(planets);
 
 }
 
@@ -81,7 +82,7 @@ function printArticles(articles)
         
         document.getElementById("spaceArticlesDiv").innerHTML += `
         <br />
-        <div id=""> class="card">
+        <div class="card">
          <img src="${article.imageUrl}">
          <h1>${article.title}</h1>
          <p>${article.summary}</p>
@@ -92,17 +93,73 @@ function printArticles(articles)
         
     });
 
-    planetsBtn();
+    
 }
 
-function planetsBtn()
+function planetsBtn(planets)
 {
     //planets btn ->  planet info
     let planetsBtns = document.getElementsByClassName("planet");
 
     for(let planetBtn of planetsBtns){
         planetBtn.onclick = () =>{
-            console.log(planetBtn.id);
+
+            planets.forEach(planet=>{
+
+                if(planet.name == planetBtn.id){
+                    console.log(planet.name)
+                    document.getElementById("planetInfoDiv").innerHTML = `
+                    
+                    <div class="wrapper">
+                    
+                    <div class="planet-img">
+                        <img src="${planet.imgUrl}" height="100%" width="100%" alt="${planet.name}">
+                      </div>
+                      <div class="planet-info">
+                        <div class="planet-text">
+                        <div class="iDiv">
+                        
+                        <i class="bi bi-star-fill"></i>
+                        <i id="closePage" class="bi bi-x-lg"></i>
+                        </div>
+                        
+                          <h1>${planet.name}</h1>
+                          <br />
+                          <p class="about">
+                            <span>First Record:</span> ${planet.FirstRecord}
+                            ​​<br/>
+                            <span>Diameter:</span> ${planet.Diameter}
+                            ​​​​<br/>
+                            <span>Mass:</span> ${planet.Mass}
+                            ​​​​<br/>
+                            <span>Orbit Distance:</span>  ${planet.OrbitDistance}
+                            ​​​​<br/>
+                            <span>Orbit Period":</span> ${planet.OrbitPeriod}
+                            ​​​​<br/>
+                            <span>Recorded By"</span>: ${planet.RecordedBy}
+                            ​​​​<br/>
+                            <span>Surface Temperature:</span> ${planet.SurfaceTemperature}
+                            ​​<br/>
+                            <br/>
+                          </p>
+                          <p class="aboutText">
+                          ${planet.description}
+                          </p>
+                        </div>
+                        
+                      </div>
+                </div>
+
+                    `;
+                }
+
+            })
+
+            document.getElementById("closePage").onclick = () =>
+            {
+                document.getElementById("planetInfoDiv").innerHTML ="";
+            }
+
 
         }
 

@@ -1,5 +1,16 @@
 /* colors:  #1b1b4d , #575ba8 , #675ca8 , #a3a3a3 , #e8e8ea */
 
+
+@font-face {
+    font-family: 'nikkyou';
+    src: url('../fonts/NikkyouSans-B6aV.ttf');
+}
+
+@font-face {
+    font-family: 'exoplan';
+    src: url('../fonts/Exoplanetaria-gxxJ5.ttf');
+}
+
 body { 
     margin: 0;
 }
@@ -14,6 +25,19 @@ body {
 .header div
 {
     margin-right: 10%;
+}
+
+.header div.logInDiv a{
+    font-family: 'nikkyou';
+    display: block;
+    color:  #be90d6;
+    text-align: center;
+    padding: 8px 14px;
+    text-decoration: none;
+    font-size: 18px;
+    border: solid #c07fe4;
+    float: right;
+   
 }
   
 .header a {
@@ -140,6 +164,94 @@ main .container
 
 /************************************/
 
+/**planet info**/
+
+.wrapper {
+    height: 550px;
+    width: 720px;
+    margin: 50px auto;
+    background-color: #675ca8;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2)
+
+}
+  
+.planet-img {
+    
+    float: left;
+    height: 480px;
+    width: 372px;
+}
+  
+.planet-info {
+    float: left;
+    height: 550px;
+    width: 348px;
+    background-color: #575ba8;
+}
+  
+.planet-text {
+    background-color: #575ba8;
+    height: 480px;
+    width: 327px;
+}
+
+
+.planet-text .iDiv i {
+    color: #f2f2f3;
+    display: inline-block;
+    font-size:35px;
+}
+
+.planet-text .iDiv i.bi-x-lg {
+    margin-left: 72%;
+}
+
+.planet-text .iDiv i.bi-star, i.bi-star-fill{
+    margin-left: 5%;
+    color: #e8e8ea;
+}
+  
+.planet-text h1 {
+    margin: 0 0 0 5%;
+    padding-top: 52px;
+    font-size: 34px;
+    color: #e8e8ea;
+}
+  
+.planet-text h1 {
+    font-family: 'nikkyou', sans-serif; 
+}
+  
+
+  
+.planet-text p {
+    height: 130px;
+    margin: 0 0 0 5%;
+    font-family: 'exoplan', serif;
+    color: #e8e8ea;
+    line-height: 1.7em;
+    font-size: 0.8em;
+    font-weight: lighter;
+    
+}
+
+.planet-text p.aboutText {
+
+    margin-top: 20%;
+    
+}
+  
+  
+  
+  
+span {
+    font-family: 'exoplan', serif;
+    font-weight: bolder;
+    font-size: 1.3em;
+    line-height: 0.9em;
+}
+  
+  
 
 
 
