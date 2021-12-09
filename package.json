@@ -1,0 +1,27 @@
+{
+  "name": "web2-frontend-yassinbenhaddou",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EHB-MCT/web2-frontend-Yassinbenhaddou.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EHB-MCT/web2-frontend-Yassinbenhaddou/issues"
+  },
+  "homepage": "https://github.com/EHB-MCT/web2-frontend-Yassinbenhaddou#readme",
+  "dependencies": {
+    "webpack": "^5.65.0",
+    "webpack-cli": "^4.9.1"
+  }
+}
