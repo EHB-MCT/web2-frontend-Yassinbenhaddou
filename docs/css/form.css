@@ -1,0 +1,281 @@
+
+
+
+
+/* Form Popup */
+.hover_bkgr_fricc{
+  background:rgba(231, 231, 231, 0.4);
+  
+  display:none;
+  height:100%;
+  position:fixed;
+  text-align:center;
+  top:0;
+  width:100%;
+  z-index:10000;
+}
+.hover_bkgr_fricc .helper{
+  display:inline-block;
+  height:100%;
+  vertical-align:middle;
+}
+.hover_bkgr_fricc > div {
+  background-color: #ebebeb;
+  box-shadow: 10px 10px 60px #555;
+  display: inline-block;
+  height: auto;
+  max-width: 551px;
+  min-height: 100px;
+  vertical-align: middle;
+  width: 60%;
+  position: relative;
+  border-radius: 8px;
+  padding: 15px 5%;
+}
+.popupCloseButton {
+  background-color: #fff;
+  border: 3px solid #999;
+  border-radius: 50px;
+  cursor: pointer;
+  display: inline-block;
+  font-family: arial;
+  font-weight: bold;
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  font-size: 25px;
+  line-height: 30px;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+}
+.popupCloseButton:hover {
+  background-color: #ccc;
+}
+.trigger_popup_fricc {
+  cursor: pointer;
+  font-size: 20px;
+  margin: 20px;
+  display: inline-block;
+  font-weight: bold;
+}
+
+
+div.loginOrRegisterUl a{
+  display: inline-block;
+  margin: 2%;
+  font-family: "exoplan", sans-serif;
+  font-weight: 600;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+
+/**form*/
+
+
+
+
+div.formRegister{
+    
+    color: #d4d1d1;
+    float: left;
+    width: 500px;
+    margin: 2% 0 0 2%;
+    background-color:#1d1d1d ;
+    box-shadow: 0 4px 4px #000000;
+}
+
+div.formRegister form{
+
+    margin: 2% 2% 2% 2%;
+
+}
+
+div.formLogin{
+    
+    color: #d4d1d1;
+    float: left;
+    width: 500px;
+    margin: 2% 0% 0 2%;
+    background-color:#1d1d1d ;
+    box-shadow: 0 4px 4px #000000;
+
+    display: none;
+    
+}
+
+div.formLogin form{
+  margin: 2% 2% 2% 2%;
+  
+
+}
+
+
+
+.balise {
+    display: -ms-flexbox; 
+    display: flex;
+    width: 100%;
+    margin-bottom: 15px;
+}
+  
+.icon {
+    padding: 10px;
+    background:  #673185;
+    color: white;
+    min-width: 50px;
+    text-align: center;
+}
+  
+.field {
+
+    background-color:#f2ddfd ;
+    font-family: 'nikkyou';
+    font-size: 20px;
+    width: 100%;
+    padding: 10px;
+    outline: none;
+    border: none;
+}
+  
+.field:focus {
+    border: 2px solid  #e1aaff;
+}
+  
+
+div.formRegister form .btn {
+
+    font-family: 'nikkyou';
+    display: block;
+    color:  #be90d6;
+    background-color:#1d1d1d ;
+    text-align: center;
+    padding: 8px 16px;
+    text-decoration: none;
+    font-size: 20px;
+    border: solid #c07fe4;
+    padding: 15px 20px;
+    
+    width: 100%;
+
+}
+  
+div.formRegister form .btn:hover {
+    background-color: #401c53;
+    color: rgb(233, 233, 233);
+}
+
+  
+
+
+div.formLogin form .btn {
+
+    font-family: 'nikkyou';
+    display: block;
+    color:  #be90d6;
+    background-color:#1d1d1d ;
+    text-align: center;
+    padding: 8px 16px;
+    text-decoration: none;
+    font-size: 20px;
+    border: solid #c07fe4;
+    padding: 15px 20px;
+   
+    width: 100%;
+
+}
+  
+div.formLogin form .btn:hover {
+    background-color: #401c53;
+    color: rgb(233, 233, 233);
+}
+
+  /****************Profile******************/
+/**success***/
+main div.successful{
+    color: #3dd878;
+    float: left;
+    width: 50%;
+    margin: 6% 0 0 25%;
+    background-color:#1d1d1d ;
+    box-shadow: 0 14px 14px #000000;
+}
+
+
+main div.successful h2{
+    color: #47f564;
+    text-align: center;
+    margin: 4% 0 4% 0;
+    font-family:"nikkyou";
+    font-weight:normal ;
+    font-size: 24px;
+
+}
+
+main div.successful h3{
+  color: #47f564;
+  text-align: center;
+  margin: 4% 0 4% 0;
+  font-family:"nikkyou";
+  font-size: 18px;
+  font-weight: normal;
+
+}
+
+main div.successful a.logoutClass{
+
+  font-family: 'nikkyou';
+  display: block;
+  color:   #fc4141;
+  text-align: center;
+  padding: 8px 16px;
+  align-items:  center;
+  width: 30%;
+  text-decoration: none;
+  font-size: 20px;
+  border: solid #fc4141;
+
+  margin: 4% 0 2% 33%
+
+}
+
+
+
+main div.successful a.logoutClass:hover {
+  background-color: #f19191;
+  color: rgb(233, 233, 233);
+}
+
+
+/**not success***/
+
+main div.notSuccessful{
+  color: #ff2525;
+  float: left;
+  width: 50%;
+  margin: 2% 0 0 25%;
+  background-color:#1d1d1d ;
+  box-shadow: 0 14px 14px #000000;
+}
+
+
+main div.notSuccessful h3{
+  color: #ff2a2a;
+  text-align: center;
+  margin: 4% 0 4% 0;
+  font-family:"nikkyou";
+  font-weight:normal ;
+  font-size: 24px;
+
+}
+
+main div.notSuccessful h2{
+  color: #ff2a2a;
+  text-align: center;
+  margin: 4% 0 4% 0;
+  font-family:"nikkyou";
+  font-weight:normal ;
+  font-size: 24px;
+
+}

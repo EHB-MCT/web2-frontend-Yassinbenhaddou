@@ -4,18 +4,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.1.9/lib/p5.js"></script>
+    <script src="particle.js"></script>
     <script src="main.js"></script>
-    
- <!--   <script src="https://cdn.jsdelivr.net/npm/p5@1.1.9/lib/p5.js"></script> -->
+    <script src="../src/solarSystem.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
     <title>Document</title>
 </head>
 <body>
     <!-- header -->
     <header class="header">
         <div class="logInDiv">
-            <a href="#">log in</a>
+            <a id="loginBtn" href="#">log in</a>
         </div>
       </div>
 
@@ -29,22 +30,85 @@
 
     </header>
 
+    
+    <div id="loginFormDiv" class="hover_bkgr_fricc">
+     <span class="helper"></span>
+     <div>
+        <button id="closeFormBtn" class="popupCloseButton">&times;</button>
+
+        <div class="loginOrRegisterUl">
+            <a id="showLoginForm">Login</a>
+            <a id="showRegisterForm">Register</a>
+        </div>
+
+        <div id="formDiv" class="formRegister" >
+            <form class="register" name="" type="submit" id="register">
+                <h2>Register Form</h2>
+                <br>
+                <div class="balise">
+                    <i class="bi bi-person icon"></i>
+                    <input id="userRegister" class="field" type="text" placeholder="Username" name="username">
+                </div>
+
+                <div class="balise">
+                    <i class="bi bi-envelope icon"></i>
+                    <input id="emailRegister" class="field" type="text" placeholder="Email" name="email">
+                </div>
+
+                <div class="balise">
+                    <i class="bi bi-key icon"></i>
+                    <input id="passwordRegister" class="field" type="password" placeholder="Password" name="passsword">
+                </div>
+                <div class="balise">
+                    <i class="bi bi-key icon"></i>
+                    <input id="rePasswordRegister" class="field" type="password" placeholder="Repeat Password"
+                        name="passswordRepeat">
+                </div>
+
+                <button type="submit" class="btn">Register</button>
+            </form>
+        </div>
+
+        <div id="formDiv2" class="formLogin">
+            <form id="formLogin" class="formLogin" name="" type="submit">
+                <h2>Login</h2>
+                <br>
+                <div class="balise">
+                    <i class="bi bi-envelope icon"></i>
+                    <input id="logUser" class="field" type="email" placeholder="Email" name="userEmail">
+                </div>
+                <div class="balise">
+                    <i class="bi bi-key icon"></i>
+                    <input id="logPassword" class="field" type="password" placeholder="Password" name="passsword">
+                </div>
+
+
+                <button type="submit" class="btn">Login</button>
+            </form>
+        </div>
+        
+     </div>
+
+     
+    </div>
+
+
     <main>
         <div class="container" id="solarSystemDiv">
-            <h1>Solar System</h1>
+            
         </div>
     
         <div class="container" id="planetsDiv">
-            <h1>Planets</h1>
+            
 
-            <div id="planetInfoDiv" >
+            <div id="planetInfoDiv">
                 
             </div>
         </div>
 
     
         <div class="container" id="spaceArticlesDiv">
-            <h1>Articles</h1>
+           
         </div>
     </main>
 </body>

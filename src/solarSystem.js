@@ -1,13 +1,12 @@
-function setup(){
-
-    let planets = []
+let planets = []
 let sun
-let numPlanets = 4
-let G = 120
+let numPlanets = 8
+let G = 30
 let destabilise = 0.15
 
 function setup() {
-  createCanvas(windowWidth,windowHeight)
+  let cnv = createCanvas(windowWidth,windowHeight)
+  cnv.parent('solarSystemDiv');
   sun = new Body(50,createVector(0,0),createVector(0,0))
 
     // Initialise the planets
@@ -30,10 +29,11 @@ function setup() {
 }
 
 function draw() {
-  background(180)
+  background(25 ,18, 39)
   translate(width/2, height/2)
   for (let i = numPlanets-1; i >= 0; i--) {
     sun.attract(planets[i])
+    
     planets[i].move()
     planets[i].show()
   }
@@ -78,7 +78,5 @@ function Body(_mass, _pos, _vel){
     f.setMag( (G * this.mass * child.mass)/(r * r) )
     child.applyForce(f)
   }
-
-}
 
 }

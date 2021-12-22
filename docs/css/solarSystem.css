@@ -1,0 +1,90 @@
+body {
+    height: 100vh;
+    background: linear-gradient(black, rgba(0, 0, 0, 0.7));
+  }
+  
+  .planet,
+  .star {
+    position: absolute;
+    width: var(--size);
+    height: var(--size);
+    top: calc(50% - var(--size) / 2);
+    left: calc(50% - var(--size) / 2);
+    border-radius: 50%;
+  }
+  
+  .sun {
+    --size: 80px;
+    --push: 0px;
+    background: linear-gradient(45deg, goldenrod, yellow);
+    animation: orbit 3s infinite linear;
+  }
+  
+  .mercury {
+    --size: 20px;
+    --push: 60px;
+    background-image:url("https://svgur.com/i/cek.svg");
+    animation: orbit 5.5s infinite linear;
+  }
+  
+  .venus {
+    --size: 24px;
+    --push: 100px;
+    background-image:url("https://svgur.com/i/cdd.svg");
+    animation: orbit 6s infinite linear;
+  }
+  
+  .earth {
+    --size: 40px;
+    --push: 140px;
+    background-image:url("https://svgur.com/i/cdy.svg");
+    animation: orbit 6.5s infinite linear;
+  }
+  
+  .mars {
+    --size: 30px;
+    --push: 180px;
+    background-image:url("https://svgur.com/i/ce7.svg");
+    animation: orbit 7s infinite linear;
+  }
+  
+  .jupiter {
+    --size: 70px;
+    --push: 240px;
+    background-image:url("https://svgur.com/i/cej.svg");
+    animation: orbit 7.5s infinite linear;
+  }
+  
+  .saturn {
+    --size: 80px;
+    --push: 300px;
+    background-image:url("https://svgur.com/i/ce8.svg");
+    
+    animation: orbit 8s infinite linear;
+  }
+  
+  
+  
+  .uranus {
+    --size: 50px;
+    --push: 340px;
+    background-image:url("https://svgur.com/i/ceV.svg");
+    animation: orbit 6.5s infinite linear;
+  }
+  
+  .neptune {
+    --size: 30px;
+    --push: 380px;
+    background-image:url("https://svgur.com/i/cdc.svg");
+    animation: orbit 7s infinite linear;
+  }
+  
+  @keyframes orbit {
+    from {
+      transform: rotate(0) translateX(var(--push));
+    }
+  
+    to {
+      transform: rotate(360deg) translateX(var(--push));
+    }
+  }

@@ -1,0 +1,23 @@
+body { 
+   
+    background-color:#191227 ;
+    overflow-x: hidden;
+    margin: 0;
+}
+
+
+
+
+main .container
+{
+
+    margin: 2% 10% 2% 10%
+}
+
+
+
+main #solarSystemDiv
+{
+
+    margin: 2% 0% 2% 0%
+}

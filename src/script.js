@@ -1,4 +1,7 @@
+                    
+
 window.onload = () =>{
+
 
     let solarSystemApiUrl = "https://test-planets-api.herokuapp.com/getData";
     let issApiUrl = "https://wheretheiss.at/w/developer";
@@ -17,7 +20,9 @@ window.onload = () =>{
     //headerNav
     let headerBtns = document.getElementsByClassName("headerBtnClass");
     document.getElementById("planetsDiv").style.display = "none";
-    document.getElementById("spaceArticlesDiv").style.display = "none"
+    document.getElementById("spaceArticlesDiv").style.display = "none";
+
+    
 
    for(let headerBtn of headerBtns)
    {
@@ -37,7 +42,31 @@ window.onload = () =>{
         document.getElementById(headerBtn.name + "Div").style.display = "block";
            
        }
-   }    
+   }
+   
+   document.getElementById("loginBtn").onclick = function () {
+    document.getElementById("loginFormDiv").style.display = "block";   
+      
+   }
+
+   document.getElementById("showLoginForm").onclick = () =>{
+      document.getElementById("formDiv").style.display = "none";
+      document.getElementById("formDiv2").style.display = "block"; 
+   }
+
+   document.getElementById("showRegisterForm").onclick = () =>{
+    document.getElementById("formDiv2").style.display = "none";
+    document.getElementById("formDiv").style.display = "block"; 
+   }
+  
+
+   document.getElementById("closeFormBtn").onclick = function () {
+    document.getElementById("loginFormDiv").style.display = "none";
+   }
+
+   
+
+   
     
 
    fetch(solarSystemApiUrl)
@@ -66,7 +95,7 @@ function printHtml(planets)
         <div id="${planet.name}" class="planet">
         <img src="${planet.imgUrl}" alt="${planet.name}">
         <div class="info">
-          <h4 class="name">${planet.name}</h4>b></b></h4> 
+          <h4 class="name">${planet.name}</h4></br></h4> 
         </div>
         </div>
         `;
@@ -77,18 +106,21 @@ function printHtml(planets)
 
 function printArticles(articles)
 {
+
+    console.log(articles)
     articles.forEach(article =>
-    {
+    { 
         
         document.getElementById("spaceArticlesDiv").innerHTML += `
         <br />
-        <div class="card">
-         <img src="${article.imageUrl}">
-         <h1>${article.title}</h1>
-         <p>${article.summary}</p>
-         <p>
-         <button>Read more</button></p>
+        
+
+         <a href="${article.url}" target="_blank" class="card"  style="background-image:url('${article.imageUrl}')">
+          <div class="inner">
+          <h2 class="title">${article.title}</h2>
+          <time class="subtitle">${article.publishedAt}<time>
          </div>
+        </a>
      `;
         
     });
