@@ -65,6 +65,63 @@ window.onload = () =>{
    }
 
    
+   
+   
+   
+   document.getElementById("register").addEventListener('submit', e => {
+    e.preventDefault();
+   
+    let userName = document.getElementById("userRegister").value;
+    let email = document.getElementById("emailRegister").value;
+    let password = document.getElementById("passwordRegister").value;
+    let passwordReapeat = document.getElementById("rePasswordRegister").value;
+
+    console.log(userName, email, password, passwordReapeat)
+
+
+    /*fetch('https://groep-web2-backend.herokuapp.com/challenges', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            name, points, course, session
+        })
+    }).then(data => {
+        return data.json()
+    })*/
+    
+    
+   })
+
+
+   document.getElementById("formLogin").addEventListener('submit', e => {
+    e.preventDefault();
+   
+    
+    let email = document.getElementById("logEmail").value;
+    let password = document.getElementById("logPassword").value;
+
+
+    console.log(email, password)
+
+
+    /*fetch('https://groep-web2-backend.herokuapp.com/challenges', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            name, points, course, session
+        })
+    }).then(data => {
+        return data.json()
+    })*/
+    
+    
+   })
+
+   
 
    
     
