@@ -193,7 +193,7 @@ div.formLogin form .btn:hover {
 
   /****************Profile******************/
 /**success***/
-main div.successful{
+ div.successful{
     color: #3dd878;
     float: left;
     width: 50%;
@@ -203,7 +203,7 @@ main div.successful{
 }
 
 
-main div.successful h2{
+ div.successful h2{
     color: #47f564;
     text-align: center;
     margin: 4% 0 4% 0;
@@ -213,7 +213,7 @@ main div.successful h2{
 
 }
 
-main div.successful h3{
+ div.successful h3{
   color: #47f564;
   text-align: center;
   margin: 4% 0 4% 0;
@@ -223,10 +223,10 @@ main div.successful h3{
 
 }
 
-main div.successful a.logoutClass{
+ div.successful a.logoutClass{
 
   font-family: 'nikkyou';
-  display: block;
+
   color:   #fc4141;
   text-align: center;
   padding: 8px 16px;
@@ -242,7 +242,7 @@ main div.successful a.logoutClass{
 
 
 
-main div.successful a.logoutClass:hover {
+ div.successful a.logoutClass:hover {
   background-color: #f19191;
   color: rgb(233, 233, 233);
 }
@@ -250,7 +250,7 @@ main div.successful a.logoutClass:hover {
 
 /**not success***/
 
-main div.notSuccessful{
+ div.notSuccessful{
   color: #ff2525;
   float: left;
   width: 50%;
@@ -260,7 +260,7 @@ main div.notSuccessful{
 }
 
 
-main div.notSuccessful h3{
+ div.notSuccessful h3{
   color: #ff2a2a;
   text-align: center;
   margin: 4% 0 4% 0;
@@ -270,7 +270,7 @@ main div.notSuccessful h3{
 
 }
 
-main div.notSuccessful h2{
+ div.notSuccessful h2{
   color: #ff2a2a;
   text-align: center;
   margin: 4% 0 4% 0;

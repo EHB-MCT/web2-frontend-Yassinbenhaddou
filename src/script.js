@@ -71,25 +71,49 @@ window.onload = () =>{
    document.getElementById("register").addEventListener('submit', e => {
     e.preventDefault();
    
-    let userName = document.getElementById("userRegister").value;
+    let username = document.getElementById("userRegister").value;
     let email = document.getElementById("emailRegister").value;
     let password = document.getElementById("passwordRegister").value;
     let passwordReapeat = document.getElementById("rePasswordRegister").value;
+    let favplanet = "";
 
-    console.log(userName, email, password, passwordReapeat)
+    
 
 
-    /*fetch('https://groep-web2-backend.herokuapp.com/challenges', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            name, points, course, session
+    if (username !== "" && email !== "" && password !== "" && (passwordReapeat === password)) {
+        
+        const result = fetch("http://localhost:3000/register", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                username,
+                email,
+                password,
+                favplanet,
+                dataUser: new Object,
+                date: new Date
+            })
+            }).then(data => {
+              return data.json();
+            })
+            result.then(data => {
+            console.log(data)
+
+            document.getElementById('successful').style.display = 'block';
+            document.getElementById('successful').innerHTML = `
+            <h2> registration success</h2 >
+            <h3>you can log in bro</h2>`;
+
         })
-    }).then(data => {
-        return data.json()
-    })*/
+       } else {
+        document.getElementById('errorForm').style.display = 'block';
+        document.getElementById('errorForm').innerHTML = `
+        <h2> error</h2 >
+        <h3>please enter all fields</h2>`;
+         console.log("please enter all fields")
+       }
     
     
    })
@@ -101,23 +125,39 @@ window.onload = () =>{
     
     let email = document.getElementById("logEmail").value;
     let password = document.getElementById("logPassword").value;
-
-
-    console.log(email, password)
-
-
-    /*fetch('https://groep-web2-backend.herokuapp.com/challenges', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            name, points, course, session
-        })
-    }).then(data => {
-        return data.json()
-    })*/
     
+    let result = fetch('http://localhost:3000/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                email, password
+            })
+        }).then(data => {
+            return data.json()
+        })
+        result.then(data => {
+            if (typeof data.message == 'object') {
+                //console.log(data.message)
+               // localStorage.setItem('userInfo', JSON.stringify(data.message))
+
+                document.getElementById('formDiv').style.display = 'none';
+                document.getElementById('formDiv2').style.display = 'none';
+                document.getElementById('successful').style.display = 'block';
+                document.getElementById('successful').innerHTML = `
+                <h2> login success</h2 >
+                
+                <h3>welcome Bg</h3> 
+                <a class='logoutClass' id='logout'>logout</a>
+                `;
+               // window.location.href = "form.html";
+
+            }
+            else {
+                console.log(data.message)
+            }
+        })
     
    })
 
