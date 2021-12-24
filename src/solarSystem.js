@@ -1,4 +1,4 @@
-let planets = []
+/*let planets = []
 let sun
 let numPlanets = 8
 let G = 30
@@ -79,4 +79,4 @@ function Body(_mass, _pos, _vel){
     child.applyForce(f)
   }
 
-}
+}*/
