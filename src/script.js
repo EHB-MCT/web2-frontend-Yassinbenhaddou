@@ -1,7 +1,16 @@
-                    
-
+const user = localStorage.getItem('userInfo');
+let array = user.split(",")
 window.onload = () =>{
 
+   
+   
+    console.log(array);
+
+    if (user) 
+    {
+      document.getElementById("userBtn").style.display="block";
+      document.getElementById("loginBtn").style.display="none";
+    }
 
     let solarSystemApiUrl = "https://test-planets-api.herokuapp.com/getData";
     let issApiUrl = "https://wheretheiss.at/w/developer";
@@ -21,7 +30,7 @@ window.onload = () =>{
     let headerBtns = document.getElementsByClassName("headerBtnClass");
     document.getElementById("planetsDiv").style.display = "none";
     document.getElementById("spaceArticlesDiv").style.display = "none";
-
+  
     
 
    for(let headerBtn of headerBtns)
@@ -49,6 +58,24 @@ window.onload = () =>{
       
    }
 
+   document.getElementById("userBtn").onclick = function () {
+     document.getElementById("loginFormDiv").style.display = "block";   
+
+     document.getElementById("userBtn").style.display="block";
+     document.getElementById("loginBtn").style.display="none";
+     document.getElementById('formDiv').style.display = 'none';
+     document.getElementById('formDiv2').style.display = 'none';
+     document.getElementById('successful').style.display = 'block';
+     document.getElementById('successful').innerHTML = `
+       <h2> login success</h2 >
+
+        <h3>welcome Bg</h3> 
+        <a class='logoutClass' id='logout'>logout</a>
+                `;
+
+     logout();
+   }
+
    document.getElementById("showLoginForm").onclick = () =>{
       document.getElementById("formDiv").style.display = "none";
       document.getElementById("formDiv2").style.display = "block"; 
@@ -65,9 +92,35 @@ window.onload = () =>{
    }
 
    
+   //sned comment
+
+   document.getElementById("commentsForm").addEventListener('submit', e => {
+    e.preventDefault();
+    let comment = document.getElementById("message").value;
+
+        fetch("https://web2-backend-yassinbenhaddou.herokuapp.com/comments", 
+        {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                
+                userId : array[0],
+                comment
+            })
+            }).then(data => {
+              return data.json();
+            })
+            result.then(data => {
+            console.log(data)
+           
+
+        })
+        fetchComment();
+   })
    
-   
-   
+   //registratie
    document.getElementById("register").addEventListener('submit', e => {
     e.preventDefault();
    
@@ -82,7 +135,7 @@ window.onload = () =>{
 
     if (username !== "" && email !== "" && password !== "" && (passwordReapeat === password)) {
         
-        const result = fetch("http://localhost:3000/register", {
+        const result = fetch("https://web2-backend-yassinbenhaddou.herokuapp.com/register", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -126,7 +179,7 @@ window.onload = () =>{
     let email = document.getElementById("logEmail").value;
     let password = document.getElementById("logPassword").value;
     
-    let result = fetch('http://localhost:3000/login', {
+    let result = fetch('https://web2-backend-yassinbenhaddou.herokuapp.com/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -140,7 +193,11 @@ window.onload = () =>{
         result.then(data => {
             if (typeof data.message == 'object') {
                 //console.log(data.message)
-               // localStorage.setItem('userInfo', JSON.stringify(data.message))
+                
+                localStorage.setItem('userInfo', JSON.stringify(data.message))
+
+                document.getElementById("userBtn").style.display="block";
+                document.getElementById("loginBtn").style.display="none";
 
                 document.getElementById('formDiv').style.display = 'none';
                 document.getElementById('formDiv2').style.display = 'none';
@@ -149,9 +206,12 @@ window.onload = () =>{
                 <h2> login success</h2 >
                 
                 <h3>welcome Bg</h3> 
+
                 <a class='logoutClass' id='logout'>logout</a>
                 `;
                // window.location.href = "form.html";
+
+               logout();
 
             }
             else {
@@ -164,8 +224,7 @@ window.onload = () =>{
    
 
    
-    
-
+   ///FETCH Get APIS
    fetch(solarSystemApiUrl)
     .then(response => response.json())
     .then(data => printHtml(data.planets));
@@ -176,10 +235,29 @@ window.onload = () =>{
 
     fetch(peopleApiUrl)
     .then(response => response.json())
-    .then(issData => console.log(issData));  
-
+    .then(issData => console.log(issData));
     
+    function fetchComment(){
+    fetch("https://web2-backend-yassinbenhaddou.herokuapp.com/comments")
+    .then(response => response.json())
+    .then(comments => printComments(comments))
+    }
+    fetchComment();
+    
+  
+}
 
+function logout(){
+    
+    //logout
+    document.getElementById('logout').addEventListener('click', () => {
+
+        console.log('logout');
+        localStorage.removeItem('userInfo');
+
+        window.location.reload();
+        
+    });
 }
 
 
@@ -212,12 +290,27 @@ function printArticles(articles)
         <br />
         
 
-         <a href="${article.url}" target="_blank" class="card"  style="background-image:url('${article.imageUrl}')">
-          <div class="inner">
-          <h2 class="title">${article.title}</h2>
-          <time class="subtitle">${article.publishedAt}<time>
-         </div>
-        </a>
+      <div id="planetInfoDiv">
+        <div class="blog-card">
+            <div class="meta">
+              <div class="photo" style="background-image: url(${article.imageUrl})"></div>
+              <ul class="details">
+                <li class="date">${article.publishedAt}</li>   
+                </li>
+              </ul>
+            </div>
+            <div class="description">
+              <h1>${article.title}</h1>
+              <h2>Opening a door to the future</h2>
+              <p> ${article.summary}.</p>
+              <p class="read-more">
+                <a href="${article.url}" target="_blank">Read More</a>
+              </p>
+            </div>
+          </div>
+         
+        </div>
+       </div>
      `;
         
     });
@@ -295,5 +388,113 @@ function planetsBtn(planets)
     }
 }
 
+
+function printComments(comments)
+{
+
+    document.getElementById("allComments").innerHTML = "";
+    comments.forEach(comment=>{
+    let chatLeforRight;
+
+    if( user.includes(comment.userId))
+    {
+        document.getElementById("allComments").innerHTML += `
+        <div class="media">
+        <a class=pull-right ><img class="media-object" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt=""></a>
+        <div class="media-body">
+            <h4 class="media-heading">John Doe</h4>
+            
+            <input sub type="text" id="up${comment._id}" name="update" value="${comment.comment}" readonly></input>
+
+         </div>
+         <br />
+         <br />
+          <i id="${comment._id}" class="bi bi-trash icon delete"></i>
+          <i id="${comment._id}" class="bi bi-pen icon update"></i>
+        </div>
+        `;
+
+    }else{
+        document.getElementById("allComments").innerHTML += `
+        <div class="media">
+        <a class=pull-left ><img class="media-object" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt=""></a>
+        <div class="media-body">
+            <h4 class="media-heading">John Doe</h4>
+            <p>${comment.comment}</p>
+         </div>
+        </div>
+        `;
+    }
+
+   })
+
+  deleteAndUpdate();
+}
+
+function deleteAndUpdate()
+{
+
+    
+    let updates = document.getElementsByClassName('update');
+
+    for(let update of updates){
+        update.onclick = () =>{
+            document.getElementById("up"+update.id).removeAttribute('readonly');
+            console.log("update")
+
+            document.getElementById("up"+update.id).addEventListener("keyup", function(event) {
+                if (event.keyCode === 13) {
+                 event.preventDefault();
+                 let comment = document.getElementById("up"+update.id).value;
+                 console.log(comment)
+                 sendNewUpdateComment(comment,update.id);
+                 
+               }
+            })
+        }
+    }
+
+    let deletes = document.getElementsByClassName('delete');
+    for(let deleteBtn of deletes){
+        deleteBtn.onclick = () =>{
+
+    
+            fetch(`https://web2-backend-yassinbenhaddou.herokuapp.com/comments/${deleteBtn.id}`, {
+                    method: "DELETE",
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+            })
+            .then(response => {
+                return response.json()
+            })
+            console.log("delete")
+            fetchComment();
+        }
+    }
+}
+
+//send comment update to data
+function sendNewUpdateComment(comment,id)
+{
+    fetch("https://web2-backend-yassinbenhaddou.herokuapp.com/comments/"+id, 
+                 {
+                      method: "PUT",
+                      headers: {
+                "Content-Type": "application/json"
+                },
+               body: JSON.stringify({
+                
+                comment:comment
+              })
+              }).then(data => {
+               return data.json();
+               fetchComment();
+    })
+               
+        
+
+       
+}
 
 

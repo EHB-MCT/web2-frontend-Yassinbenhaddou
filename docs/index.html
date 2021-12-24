@@ -10,12 +10,14 @@
     <script src="../src/solarSystem.js"></script>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
     <title>Document</title>
 </head>
 <body>
     <!-- header -->
     <header class="header">
         <div class="logInDiv">
+            <a id="userBtn" style="display:none" href="#"><i class="bi bi-person icon" ></i></a>
             <a id="loginBtn" href="#">log in</a>
         </div>
       </div>
@@ -24,6 +26,7 @@
           <a name="solarSystem" id="active" class="headerBtnClass">Solar System</a>
           <a name="planets" class="headerBtnClass">Planets</a>
           <a name="spaceArticles" class="headerBtnClass">Space Articles</a>
+         
         </div>
 
             <a href="#default" class="logo">Solar System</a>
@@ -111,17 +114,49 @@
         </div>
     
         <div class="container" id="planetsDiv">
-            
 
-            <div id="planetInfoDiv">
-                
-            </div>
+            
+            
         </div>
 
     
         <div class="container" id="spaceArticlesDiv">
            
         </div>
+
+        <div id="commentsDiv">
+
+            <section class="content-item" id="comments">
+                <div class="container">   
+                    <div class="row">
+                        <div class="col-sm-8">   
+                            <form id="commentsForm">
+                                <h3 class="pull-left">New Comment</h3>
+                                <button type="submit" class="btn btn-normal pull-right">Submit</button>
+                                <fieldset>
+                                    <div class="row">
+                                        
+                                        <div class="form-group col-xs-12 col-sm-9 col-lg-10">
+                                            <input class="form-control" id="message" placeholder="Your comment" required=""></input>
+                                        </div>
+                                    </div>  	
+                                </fieldset>
+                            </form>
+                            
+                            
+                            <div id="allComments">
+    
+
+                            </div>
+                        
+                        </div>
+                    </div>
+                </div>
+            </section>
+           
+        </div>
+
+      
     </main>
 </body>
 </html>
