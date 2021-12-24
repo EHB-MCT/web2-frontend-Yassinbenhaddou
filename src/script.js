@@ -1,5 +1,5 @@
 const user = localStorage.getItem('userInfo');
-let array = user.split(",")
+let array
 window.onload = () =>{
 
    
@@ -8,6 +8,7 @@ window.onload = () =>{
 
     if (user) 
     {
+      array = user.split(",")
       document.getElementById("userBtn").style.display="block";
       document.getElementById("loginBtn").style.display="none";
     }
